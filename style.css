@@ -1,0 +1,60 @@
+body {
+    font-family: "Open Sans";
+    background-color: #FFFFE0;
+    color: black;
+}
+
+.form-control {
+    border: 3px solid #00CED1;
+    border-radius: 20px;
+}
+
+.requireFields {
+    color: #FF6347;
+}
+
+.buttons {
+    border-radius: 20px;
+    min-width: 70px;
+    color: whitesmoke !important;
+    background-color: gray !important;
+    outline: none !important;
+    letter-spacing: 2px;
+}
+
+.control-label {
+    text-align: left !important;
+}
+
+.location {
+    width: 50%;
+    float: left;
+}
+
+.form-horizontal {
+    margin-top: 50px;
+}
+
+.form-group {
+    box-sizing: border-box !important;
+}
+
+label {
+    margin-right: 5px;
+}
+
+.red {
+    border: red;
+}
+
+.hideButtons {
+    display: none;
+}
+
+.democlass {
+    display: block;
+    border-radius: 20px;
+    outline: none !important;
+    padding: 5px;
+    background-color: red;
+}
