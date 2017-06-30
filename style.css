@@ -52,7 +52,7 @@ label {
 }
 
 .democlass {
-    display: block;
+    display: inline-block;
     border-radius: 20px;
     outline: none !important;
     padding: 5px;
