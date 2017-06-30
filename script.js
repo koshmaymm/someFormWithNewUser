@@ -1,39 +1,27 @@
 (window.unload = function() {
-    let addUser = document.getElementById("addUser");
-    addUser.addEventListener("click", addUserFunction, false);
+    let addUser = document.getElementById("addUser"),
+        inputUserAccount = document.getElementById("inputUserAccount"),
+        dangerName = document.getElementById("dangerName"),
+        inputName = document.getElementById("inputName"),
+        inputPassword = document.getElementById("inputPassword"),
+        dangerPassword = document.getElementById("dangerPassword"),
+        inputConfirm = document.getElementById("inputConfirm"),
+        dangerConfirm = document.getElementById("dangerConfirm");
 
-    let inputUserAccount = document.getElementById("inputUserAccount");
-    //inputUserAccount.addEventListener("click", hideButtons, false);
+    allEvents();
 
-    let dangerName = document.getElementById("dangerName");
-    dangerName.addEventListener("click", checkInputName, false);
-
-    let inputName = document.getElementById("inputName");
-    inputName.addEventListener("click", hideButtons, false);
-    inputName.addEventListener("keypress", hideButtons, false);
-
-    let inputPassword = document.getElementById("inputPassword");
-    inputPassword.addEventListener("click", hideButtonPass, false);
-    inputPassword.addEventListener("keypress", hideButtonPass, false);
-
-    let dangerPassword = document.getElementById("dangerPassword");
-    dangerPassword.addEventListener("click", hideButtonPass, false);
-
-    let inputConfirm = document.getElementById("inputConfirm");
-    inputConfirm.addEventListener("click", hideButtonConfirm, false);
-    inputConfirm.addEventListener("keypress", hideButtonConfirm, false);
-
-    let dangerConfirm = document.getElementById("dangerConfirm");
-    dangerConfirm.addEventListener("click", hideButtonConfirm, false);
-
-
-    /*let props = ['inputUserAccount', 'inputName', 'inputUserType', 'inputProfile', 'inputLevel', 'firstName',
-        'lastName', 'inputPassword', 'inputConfirm', 'inputEmail', 'landPhone', 'mobilePhone',
-        'inputMap', 'locationLatitude', 'locationLongitude'
-    ];*/
-
-    let propsData = [];
-    let countParam = 1;
+    function allEvents() {
+        addUser.addEventListener("click", addUserFunction, false);
+        dangerName.addEventListener("click", hideButtons, false);
+        inputName.addEventListener("click", hideButtons, false);
+        inputName.addEventListener("keypress", hideButtons, false);
+        inputPassword.addEventListener("click", hideButtonPass, false);
+        inputPassword.addEventListener("keypress", hideButtonPass, false);
+        dangerPassword.addEventListener("click", hideButtonPass, false);
+        inputConfirm.addEventListener("click", hideButtonConfirm, false);
+        inputConfirm.addEventListener("keypress", hideButtonConfirm, false);
+        dangerConfirm.addEventListener("click", hideButtonConfirm, false);
+    }
 
     function addUserFunction() {
         let param0 = inputUserAccount.value;
@@ -79,29 +67,13 @@
         let param13 = document.getElementById("locationLatitude").value;
         let param14 = document.getElementById("locationLongitude").value;
 
-
-        /*console.log("Name: " + param1);
-        console.log("UserType: " + param2);
-        console.log("Profile: " + param3);
-        console.log("Level: " + param4);
-        console.log("firstName: " + (param5 || undefined));
-        console.log("lastName: " + (param6 || undefined));
-        console.log("Password: " + param7);
-        console.log("Confirm: " + param8);
-        console.log("Email: " + (param9 || undefined));
-        console.log("landPhone: " + (param10 || undefined));
-        console.log("mobilePhone: " + (param11 || undefined));
-        console.log("Map: " + param12);
-        console.log("Latitude: " + param13);
-        console.log("Longitude: " + param14);*/
-
         createNewUser(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14);
 
         clearForm();
     }
 
     function checkRequiredFieldsOfNewUser(fieldFocus, fieldButton) {
-        fieldButton.setAttribute("class", "democlass");
+        fieldButton.setAttribute("class", "btn-danger");
         fieldFocus.focus();
     }
 
@@ -151,9 +123,7 @@
         newUser.lastName = arguments[5];
         newUser.password = arguments[6];
         newUser.confirm = arguments[7];
-
         newUser.email = arguments[8];
-
         newUser.landPhone = arguments[9];
         newUser.mobilePhone = arguments[10];
         newUser.map = arguments[11];
