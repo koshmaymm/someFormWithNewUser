@@ -130,7 +130,8 @@
 
     function createNewUser(newUser) {
         newUser = JSON.stringify(newUser);
-        if (newUser.name === undefined) {
+        if (newUser.name == "") {
+            console.log(newUser.name);
             checkRequiredFieldsOfNewUser(inputName, dangerName);
             return false;
         }
