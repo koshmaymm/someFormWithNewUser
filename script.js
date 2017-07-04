@@ -69,6 +69,7 @@
 
         //createNewUser(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14);
         createNewUser({
+            name: document.getElementById("inputName").value,
             inputUserType: document.getElementById("inputUserType").value,
             inputProfile: document.getElementById("inputProfile").value,
             inputLevel: document.getElementById("inputLevel").value,
@@ -83,12 +84,13 @@
             locationLatitude: document.getElementById("locationLatitude").value,
             locationLongitude: document.getElementById("locationLongitude").value
         });
-        clearForm();
+        //clearForm();
     }
 
     function checkRequiredFieldsOfNewUser(fieldFocus, fieldButton) {
         fieldButton.setAttribute("class", "btn-danger");
         fieldFocus.focus();
+        console.log("HI");
     }
 
     function checkInputName() {
@@ -127,28 +129,11 @@
     }
 
     function createNewUser(newUser) {
-
-        /*let newUser = {}
-        newUser.name = arguments[0];
-        newUser.type = arguments[1];
-        newUser.profile = arguments[2];
-        newUser.level = arguments[3];
-        newUser.firstName = arguments[4];
-        newUser.lastName = arguments[5];
-        newUser.password = arguments[6];
-        newUser.confirm = arguments[7];
-        newUser.email = arguments[8];
-        newUser.landPhone = arguments[9];
-        newUser.mobilePhone = arguments[10];
-        newUser.map = arguments[11];
-        newUser.latitude = arguments[12];
-        newUser.longitude = arguments[13];
-
         newUser = JSON.stringify(newUser);
-
-        console.log(newUser);*/
-
-        newUser = JSON.stringify(newUser);
+        if (newUser.name === undefined) {
+            checkRequiredFieldsOfNewUser(inputName, dangerName);
+            return false;
+        }
         console.log(newUser);
     }
 
