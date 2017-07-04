@@ -35,39 +35,6 @@
 
     function getDataParam() {
 
-        /* let param1 = document.getElementById("inputName").value;
-         if (param1 == '') { checkRequiredFieldsOfNewUser(inputName, dangerName); return false; };
-
-
-         let param2 = document.getElementById("inputUserType").value;
-
-         let param3 = document.getElementById("inputProfile").value;
-
-         let param4 = document.getElementById("inputLevel").value;
-
-         let param5 = document.getElementById("firstName").value;
-
-         let param6 = document.getElementById("lastName").value;
-
-         let param7 = document.getElementById("inputPassword").value;
-         if (param7 == '') { checkRequiredFieldsOfNewUser(inputPassword, dangerPassword); return false; };
-
-         let param8 = document.getElementById("inputConfirm").value;
-         if (param8 == '') { checkRequiredFieldsOfNewUser(inputConfirm, dangerConfirm); return false; };
-         if (param8 !== param7) { checkRequiredFieldsOfNewUser(inputConfirm, dangerConfirm); return false; };
-
-         let param9 = document.getElementById("inputEmail").value;
-
-         let param10 = document.getElementById("landPhone").value;
-
-         let param11 = document.getElementById("mobilePhone").value;
-
-         let param12 = document.getElementById("inputMap").value;
-
-         let param13 = document.getElementById("locationLatitude").value;
-         let param14 = document.getElementById("locationLongitude").value;*/
-
-        //createNewUser(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14);
         createNewUser({
             name: document.getElementById("inputName").value,
             inputUserType: document.getElementById("inputUserType").value,
@@ -84,7 +51,7 @@
             locationLatitude: document.getElementById("locationLatitude").value,
             locationLongitude: document.getElementById("locationLongitude").value
         });
-        //clearForm();
+
     }
 
     function checkRequiredFieldsOfNewUser(fieldFocus, fieldButton) {
@@ -129,13 +96,26 @@
     }
 
     function createNewUser(newUser) {
-        newUser = JSON.stringify(newUser);
+
         if (newUser.name == "") {
             console.log(newUser.name);
             checkRequiredFieldsOfNewUser(inputName, dangerName);
             return false;
         }
+
+        if (newUser.inputPassword == "") {
+            checkRequiredFieldsOfNewUser(inputPassword, dangerPassword);
+            return false;
+        }
+
+        if ((newUser.inputConfirm == "") || (newUser.inputConfirm !== newUser.inputPassword)) {
+            checkRequiredFieldsOfNewUser(inputConfirm, dangerConfirm);
+            return false;
+        };
+
+        newUser = JSON.stringify(newUser);
         console.log(newUser);
+        clearForm();
     }
 
 })();
